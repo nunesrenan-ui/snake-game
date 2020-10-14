@@ -1,0 +1,150 @@
+body {
+    overflow: hidden;
+    background-image: url(bckgd.jpg);
+    background-size: contain;
+    background-color: #cccccc;  
+    width: 750px;
+    margin: 0 auto;
+}
+
+#moveUp {
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    top: 370px;
+    left: 220px;
+}
+
+#moveDown {
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    top: 430px;
+    left: 220px;
+}
+
+#moveRight { 
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    top: 390px;
+    left: 270px;
+}
+
+#moveLeft {
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    top: 390px;
+    left: 180px;
+}
+
+#miniGame {
+    background-image: url(mingame.png);
+    background-size: contain;
+    position: relative;
+    width: 650px;
+    height: 750px;
+    margin: 0 auto;
+    top: -30px;
+}
+
+#snake {
+    border: 2px solid black;
+    height: 15px;
+    width: 15px;
+    opacity: 45%;
+    box-sizing: border-box;
+    position: absolute;
+
+}
+
+#randomPoint {
+    border: 2px solid black;
+    height: 15px;
+    width: 15px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    background-color: black;
+    opacity: 45%;
+}
+
+#outerBox {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 2px;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    right: 50%;
+    transform: translateX(40%);
+    top: 150px;
+    background-color: #4e6a4e;
+    opacity: 95%;
+}
+
+.tail {
+    border: 2px solid black;
+    height: 15px;
+    width: 15px;
+    opacity: 45%;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#counter {
+    position: absolute;
+    width: 10px;
+    top: 150px;
+    left: 380px;
+    opacity: 45%;
+    text-align: center;
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) { 
+    #miniGame {
+        background-size: 1124px;
+        width: 100%;
+        height: 1060px;
+        margin: 0 auto;
+        top: -90px;
+        translate: 50%;
+        left: -140px;
+    }
+    #outerBox {
+        height: 340px;
+        width: 340px;
+        position: absolute;
+        right: 20%;
+        transform: translateX(29%);
+        top: 260px;
+    }
+    #moveUp {
+        width: 50px;
+        height: 50px;
+        top: 640px;
+        left: 390px;
+    }
+    #moveDown {
+        width: 50px;
+        height: 50px;
+        top: 740px;
+        left: 390px;
+    }
+    #moveRight {
+        width: 50px;
+        height: 50px;
+        top: 690px;
+        left: 440px;
+    }
+    #moveLeft {
+        width: 50px;
+        height: 50px;
+        top: 690px;
+        left: 330px;
+}
