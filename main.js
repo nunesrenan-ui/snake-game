@@ -98,7 +98,7 @@ const snakeDirection = (element, speed) => {
     if (wallReached() || endGameCondition(tails, snakePositionX, snakePositionY)) {
         clearInterval(snakeSpeed);
         snake.remove();
-        tail.remove();
+        followingTheFootPrints(footPrints, minValue);
         food.remove();
         endGame()
     } else {
@@ -133,11 +133,11 @@ const snakeDirection = (element, speed) => {
 //criar condição de batida na parede:
 const wallReached = () => {
     if (snakePositionX < minValue || snakePositionX > outerBoxWidth - playerWidth) {
-        snake.style.opacity = "0%";
+        snake.style.opacity = `${minValue}%`;
         return true
     }
     if (snakePositionY < minValue || snakePositionY > outerBoxHeight - playerHeight) {
-        snake.style.opacity = "0%";
+        snake.style.opacity = `${minValue}%`;
         return true
     }
 }
@@ -159,7 +159,6 @@ const makeRandomPointInOuterBox = (elementPositionX, elementPositionY, elementHT
         elementHTML.style.left = `${left}px`
         elementHTML.style.top = `${top}px`
     }
-
 }
 
 //criar função onde a snake encontra a comida
@@ -184,13 +183,14 @@ const getBigger = (lastPosition) => {
 }
 
 //função que faz a parte do corpor desenhada na função anterior seguir a snake
-const followingTheFootPrints = (arrayPosition) => {
+const followingTheFootPrints = (arrayPosition, opacity) => {
     for (let i = 0; i < tails.length; i++) {
         let arrPosition = i+2;
         followTheSnakeX = Number(arrayPosition[arrayPosition.length - arrPosition].split(",")[0]);
         followTheSnakeY = Number(arrayPosition[arrayPosition.length - arrPosition].split(",")[1]);
         tails[i].style.left = `${followTheSnakeX}px`;
         tails[i].style.top = `${followTheSnakeY}px`;
+        tails[i].style.opacity = `${opacity}%`
     }
 }
 
@@ -211,14 +211,12 @@ const endGameCondition = (array, positionX, positionY) => {
         tailPositionY = parseInt(tailPositionY);
         if(positionX === tailPositionX &&
             positionY === tailPositionY &&
-            counterOfFood > 0) {
+            counterOfFood > 1) {
+                console.log(tailPositionX)
+                console.log(tailPositionY)
                 return true
             }
     }
     /* if() */
 }
 
-//função de repetição
-/* const snakeSpeed = setInterval(function () { snakeDirection(snake, snakeDefaultSpeed) }, 150) */
-
-//clearInterval(snakeSpeed)
