@@ -4,9 +4,11 @@ const arrowRight = "ArrowRight";
 const arrowLeft = "ArrowLeft";
 const snakeDefaultSpeed = 20;
 const minValue = 0;
+let snakeSpeed = 0;
 
 //fazer um quadrado para ser o cenário:
 //fazer um quadrado na tela para ser a serpente:
+//fazer um quadrado na tela para ser o alimento da serpente:
 const outerBox = document.getElementById("outerBox");
 const snake = document.getElementById("snake");
 const food = document.getElementById("randomPoint");
@@ -22,11 +24,35 @@ let playerWidth = parseInt(window.getComputedStyle(snake).width);
 let playerHeight = parseInt(window.getComputedStyle(snake).height);
 let gameSpaceX = outerBoxWidth - (playerWidth*2);
 let gameSpaceY = outerBoxHeight - (playerHeight*2);
-let childCounter = 1;
 let counterOfFood = 0;
+//array de posições x e y em formato de string:
 let footPrints = [];
+//array de divs:
 let tails = [];
 
+//tela inicial do jogo:
+const startGame = document.getElementById("startGame");
+startGame.innerText = "Press ON to play!";
+
+//tela final do jogo:
+const endGame = () => {
+    const endGameMessage = document.getElementById("endGameMessage");
+    endGameMessage.innerText = `Game Over Score: ${counterOfFood}! Press reset to play again!`
+}
+
+//função para iniciar o jogo:
+const btnOnOff = document.getElementById("btnOnOff");
+btnOnOff.addEventListener("click", function(){
+    startGame.remove();
+    snakeSpeed = setInterval(function () { snakeDirection(snake, snakeDefaultSpeed) }, 150);
+})
+
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", function(){
+    location.reload()
+})
+
+//funções para adicionar evento de click nas setas do mini game:
 const btnUp = document.getElementById('moveUp')
 btnUp.addEventListener("click", function(){
     keyCode = arrowUp;
@@ -71,6 +97,10 @@ const snakeDirection = (element, speed) => {
     snakePositionX = parseFloat(snakePositionX);
     if (wallReached() || endGameCondition(tails, snakePositionX, snakePositionY)) {
         clearInterval(snakeSpeed);
+        snake.remove();
+        tail.remove();
+        food.remove();
+        endGame()
     } else {
         if (keyCode === arrowUp) {
             snakePositionY -= speed;
@@ -95,7 +125,7 @@ const snakeDirection = (element, speed) => {
         count(counter);
         getBigger(counterOfFood);
     }
-    if (childCounter > 1) {
+    if (counterOfFood > 0) {
         followingTheFootPrints(footPrints);
     }
 }
@@ -166,7 +196,6 @@ const followingTheFootPrints = (arrayPosition) => {
 
 //criar um contador
 const count = (elementHTML) => {
-    childCounter += 1;
     counterOfFood += 1;
     elementHTML.textContent = counterOfFood;
 }
@@ -190,6 +219,6 @@ const endGameCondition = (array, positionX, positionY) => {
 }
 
 //função de repetição
-const snakeSpeed = setInterval(function () { snakeDirection(snake, snakeDefaultSpeed) }, 150)
+/* const snakeSpeed = setInterval(function () { snakeDirection(snake, snakeDefaultSpeed) }, 150) */
 
 //clearInterval(snakeSpeed)

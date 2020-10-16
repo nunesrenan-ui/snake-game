@@ -2,9 +2,40 @@ body {
     overflow: hidden;
     background-image: url(bckgd.jpg);
     background-size: contain;
-    background-color: #cccccc;  
+    background-color: #cccccc;
     width: 750px;
     margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#endGameMessage {
+    position: absolute;
+    text-align: center;
+    top: 40px;
+}
+
+#startGame {
+    position: absolute;
+    top: 100px;
+    width: 160px;
+    font-size: 20px;
+    left: 25px;
+}
+
+#btnOnOff {
+    width: 25px;
+    position: absolute;
+    height: 30px;
+    top: 360px;
+    left: 275px;
+}
+
+#resetBtn{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 360px;
+    left: 310px;
 }
 
 #moveUp {
@@ -23,7 +54,7 @@ body {
     left: 220px;
 }
 
-#moveRight { 
+#moveRight {
     width: 30px;
     height: 40px;
     position: absolute;
@@ -56,7 +87,6 @@ body {
     opacity: 45%;
     box-sizing: border-box;
     position: absolute;
-
 }
 
 #randomPoint {
@@ -97,54 +127,82 @@ body {
 #counter {
     position: absolute;
     width: 10px;
-    top: 150px;
+    top: 155px;
     left: 380px;
     opacity: 45%;
+    font-size: 10px;
     text-align: center;
 }
 
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 812px)
-and (-webkit-device-pixel-ratio : 3) { 
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
     #miniGame {
-        background-size: 1124px;
-        width: 100%;
-        height: 1060px;
+        background-size: 1650px;
+        width: 1110px;
+        height: 1570px;
         margin: 0 auto;
-        top: -90px;
-        translate: 50%;
-        left: -140px;
+        top: -50px;
+        left: -400px;
     }
     #outerBox {
-        height: 340px;
-        width: 340px;
+        height: 520px;
+        width: 520px;
         position: absolute;
         right: 20%;
-        transform: translateX(29%);
-        top: 260px;
+        transform: translateX(28%);
+        top: 23.8%;
     }
     #moveUp {
-        width: 50px;
-        height: 50px;
-        top: 640px;
-        left: 390px;
+        width: 60px;
+        height: 60px;
+        top: 950px;
+        left: 575px;
     }
     #moveDown {
-        width: 50px;
-        height: 50px;
-        top: 740px;
-        left: 390px;
+        width: 60px;
+        height: 60px;
+        top: 1100px;
+        left: 575px;
     }
     #moveRight {
-        width: 50px;
-        height: 50px;
-        top: 690px;
-        left: 440px;
+        width: 60px;
+        height: 60px;
+        top: 1020px;
+        left: 660px
     }
     #moveLeft {
-        width: 50px;
-        height: 50px;
-        top: 690px;
-        left: 330px;
-}
+        width: 60px;
+        height: 60px;
+        top: 1020px;
+        left: 500px;
+    }
+    #counter {
+        width: 25px;
+        top: 380px;
+        left: 980px;
+        opacity: 45%;
+        height: 10px;
+        font-size: 35px;
+    }
+    #btnOnOff {
+        width: 65px;
+        height: 60px;
+        top: 920px;
+        left: 695px;
+    }
+    #startGame {
+        top: 210px;
+        width: 320px;
+        font-size: 40px;
+        left: 105px;
+    }
+    #resetBtn {
+        width: 60px;
+        height: 60px;
+        top: 920px;
+        left: 800px;
+    }
+
+    #endGameMessage {
+        top: 70px;
+        font-size: 50px;
+    }
